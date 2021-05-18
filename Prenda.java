@@ -8,20 +8,22 @@ abstract class Prenda {
     String color;
     String colorSecundario;
 
-    void setSiNullTipo(String tipo) {
-
-    }
-
     void setSiNullMaterial(String material) {
-
+        if (this.material == NULL) {
+            this.material = material;
+        }
     }
 
     void setSiNullColor(String color) {
-
+        if (this.color == NULL) {
+            this.color = color;
+        }
     }
 
     void setSiNullColorSecundario(String colorSecundario) {
-
+        if (this.colorSecundario == NULL) {
+            this.colorSecundario = colorSecundario;
+        }
     }
 
 }
@@ -47,5 +49,8 @@ class Calzado extends Prenda {
 class Accesorio extends Prenda {
     Accesorio(String tipo) {
     this.tipo = tipo;
+    }
 }
+
+class PrendaFallada extends Prenda {
 }

@@ -33,17 +33,16 @@ class BuilderPrenda {
 
     public static void cargarPrenda() {
         tipo = indicarTipo();
-        material = elegirMaterial();
-        color = elegirColor();
-        colorSecundario = elegirColorSecundario();
+        elegirMaterial();
+        elegirColor();
+        elegirColorSecundario();
     }
 
-    Prenda continuartipo() {
-        Prenda prenda = tipo;
-        
-        // Identificaria que le falta al tipo para completarlo
-
-        return prenda;
+    static Prenda crearPrenda() {
+        tipo.setSiNullColor(color);
+        tipo.setSiNullColorSecundario(colorSecundario);
+        tipo.setSiNullMaterial(material);
+        return tipo;
     }
 
     static Prenda indicarTipo() {
@@ -69,11 +68,11 @@ class BuilderPrenda {
         }   
         catch (Exception noSeEncontroTipo) {
             System.out.print("No se indico un tipo correcto");
-            // Hacer Prenda fallada
+            return new PrendaFallada();
         }
     }
 
-    static String elegirMaterial() {
+    static void elegirMaterial() {
         try {
             Scanner scan = new Scanner(System.in);
             System.out.println("Indique material:");
@@ -95,12 +94,12 @@ class BuilderPrenda {
         }
     }
 
-    static String elegirColor() {
+    static void elegirColor() {
         try {
             Scanner scan = new Scanner(System.in);
             System.out.println("Indique color:");
 
-            this.color = scan.nextLine();
+            color = scan.nextLine();
             scan.close();
         }
         catch (IllegalArgumentException tipoErroneo) {
@@ -108,7 +107,7 @@ class BuilderPrenda {
         } 
     }
 
-    static String elegirColorSecundario() {
+    static void elegirColorSecundario() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Desea agregar un color secundario?");
 
@@ -117,7 +116,7 @@ class BuilderPrenda {
             try {
                 System.out.println("Indique color secundario:");
 
-                this.colorSecundario = scan.nextLine();
+                colorSecundario = scan.nextLine();
                 scan.close();
             }
             catch (IllegalArgumentException tipoErroneo) {
