@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -21,6 +22,10 @@ class QueMePongo {
 
     List<Prenda> getAccesorios() {
         return prendasCreadas.stream().filter(unaPrenda -> unaPrenda.getClass() == Accesorio.class).collect(Collectors.toList());
+    }
+
+    List<Prenda> filtrarPorTemperatura(List<Prenda> unaListaDePrendas, HashMap<String, Object> unaTemperatura) {
+        return unaListaDePrendas.stream().filter(unaPrenda -> unaPrenda.getGradosMaximos() < (float) unaTemperatura.get("Grados")).collect(Collectors.toList());
     }
 
     Prenda crearPrenda() {

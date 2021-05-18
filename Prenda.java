@@ -1,4 +1,3 @@
-import java.util.HashMap;
 
 abstract class Prenda {
     String tipo;
@@ -6,7 +5,7 @@ abstract class Prenda {
     String trama;
     String color;
     String colorSecundario;
-    HashMap<String, Object> temperatura;
+    Temperatura temperatura;
 
     void setSiNullMaterial(String material) {
         if (this.material == null) {
@@ -26,10 +25,14 @@ abstract class Prenda {
         }
     }
 
-    void setSiNullTemperatura(HashMap<String, Object> temperatura) {
-        if (this.temperatura.isEmpty()) {
+    void setSiNullTemperatura(Temperatura temperatura) {
+        if (this.temperatura == null) {
             this.temperatura = temperatura;
         }
+    }
+
+    public float getGradosMaximos() {
+        return temperatura.getGrados();
     }
 }
 

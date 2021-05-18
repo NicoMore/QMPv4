@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 enum Categoria { Superior, Inferior, Calzado, Accesorio; }
@@ -15,7 +14,7 @@ class BuilderPrenda {
     static String trama;
     static String color;
     static String colorSecundario;
-    static HashMap<String, Object>  temperatura;
+    static Temperatura temperatura;
 
     static ArrayList<String> getTiposSuperiores() {
         return tiposSuperiores;
@@ -54,9 +53,9 @@ class BuilderPrenda {
                 String unidad = scan.nextLine();
                 int tipoUnidad = scan.nextInt();
 
-                temperatura.put("Grados", grados);
-                temperatura.put("Unidad", unidad);
-                temperatura.put("Tipo de Unidad", tipoUnidad);
+                temperatura.setGrados(grados);
+                temperatura.setUnidad(unidad);
+                temperatura.setTipoUnidad(tipoUnidad);
 
                 scan.close();
             }
