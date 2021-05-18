@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -16,7 +18,7 @@ class QueMePongo {
         return prendasCreadas.stream().filter(unaPrenda -> unaPrenda.getClass() == PrendaInferior.class).collect(Collectors.toList());
     }
 
-    List<Prenda> getCalzado() {
+    List<Prenda> getCalzados() {
         return prendasCreadas.stream().filter(unaPrenda -> unaPrenda.getClass() == Calzado.class).collect(Collectors.toList());
     }
 
@@ -24,8 +26,16 @@ class QueMePongo {
         return prendasCreadas.stream().filter(unaPrenda -> unaPrenda.getClass() == Accesorio.class).collect(Collectors.toList());
     }
 
-    List<Prenda> filtrarPorTemperatura(List<Prenda> unaListaDePrendas, HashMap<String, Object> unaTemperatura) {
-        return unaListaDePrendas.stream().filter(unaPrenda -> unaPrenda.getGradosMaximos() < (float) unaTemperatura.get("Grados")).collect(Collectors.toList());
+    void agregarUniforme(Uniforme unUniforme) {
+        uniformesSugeridos.add(unUniforme);
+    }
+
+    void agregarPrenda(Prenda unaPrenda) {
+        prendasCreadas.add(unaPrenda);
+    }
+
+    List<Prenda> filtrarPorTemperatura(List<Prenda> unaListaDePrendas, Temperatura unaTemperatura) {
+        return unaListaDePrendas.stream().filter(unaPrenda -> unaPrenda.getGradosMaximos() < unaTemperatura.getGrados()).collect(Collectors.toList());
     }
 
     Prenda crearPrenda() {
@@ -35,15 +45,20 @@ class QueMePongo {
         return prenda;
     }
 
-    void agregarPrenda(Prenda unaPrenda) {
-        prendasCreadas.add(unaPrenda);
-    }
-
     Uniforme recibirSugerenciaUniforme() {
-        return uniformesSugeridos.get(new Random().nextInt(uniformesSugeridos.size()));
+        return uniformesSugeridos.get(numeroRandomSegunLista(uniformesSugeridos.size()));
     }
 
-    void agregarUniforme(Uniforme unUniforme) {
-        uniformesSugeridos.add(unUniforme);
+    Atuendo recibirSugerenciaAtuendoPorTemperatura(Temperatura unaTemperatura) {
+        List<Accesorio> accesorio = new ArrayList<>();
+        accesorio.add(filtrarPorTemperatura(getAccesorios(), unaTemperatura).get(numeroRandomSegunLista(getAccesorios().size())));
+        return new Atuendo( (PrendaSuperior) filtrarPorTemperatura(getPrendasSuperiores(), unaTemperatura).get(numeroRandomSegunLista(getPrendasSuperiores().size())),
+                            (PrendaInferior) filtrarPorTemperatura(getPrendasInferiores(), unaTemperatura).get(numeroRandomSegunLista(getPrendasInferiores().size())),
+                            (Calzado) filtrarPorTemperatura(getCalzados(), unaTemperatura).get(numeroRandomSegunLista(getCalzados().size())), 
+                            accesorio);
+    }
+
+    int numeroRandomSegunLista(int tamanioLista) {
+        return new Random().nextInt(tamanioLista);
     }
 }

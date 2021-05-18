@@ -39,10 +39,10 @@ Decisiones en Segunda Iteracion:
 
 # Cuarta Iteracion
 Requerimientos cuarta iteracion:
-    -Conocer clima Bs As para sugerencias.
-    -Recibir sugerencia de atuendo con prenda de cada categoria.
-    -Prendas acorde a temperatura en sugerencia.
-    -Administrador desea configurar distintos servicios de obtencion de clima.
+    -Conocer clima Bs As para sugerencias. ✓
+    -Recibir sugerencia de atuendo con prenda de cada categoria.✓
+    -Prendas acorde a temperatura en sugerencia. ✓
+    -Administrador desea configurar distintos servicios de obtencion de clima. ✓
     -Stakeholder asegurar calidad sin costos innecesarios.
 
 Pasos para integrar la segunda iteracion en la cuarta:
