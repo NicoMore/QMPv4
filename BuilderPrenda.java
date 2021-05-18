@@ -65,6 +65,8 @@ class BuilderPrenda {
                 return new Calzado(unTipo);
             else if (getTiposAccesorios().contains(unTipo))
                 return new Accesorio(unTipo);
+            else
+                return new PrendaFallada();
         }   
         catch (Exception noSeEncontroTipo) {
             System.out.print("No se indico un tipo correcto");
@@ -72,39 +74,49 @@ class BuilderPrenda {
         }
     }
 
-    static void elegirMaterial() {
-        try {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Indique material:");
+    static void elegirMaterial() { 
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Desea agregar un material?");
 
-            material = scan.nextLine();
+        boolean deseaMaterial = scan.nextBoolean();
+        if (deseaMaterial) {
+            try {
+                System.out.println("Indique material:");
 
-            System.out.println("Desea indicar una trama?");
-            if (scan.nextLine().startsWith("S")) {
-                System.out.println("Indique trama:");
-                trama = scan.nextLine();
-            } 
-            else 
-                trama = "Lisa";
+                material = scan.nextLine();
 
-            scan.close();
-        }
-        catch (IllegalArgumentException tipoErroneo) {
-            System.out.println("Se introdujo un valor de material invalido.");
+                System.out.println("Desea indicar una trama?");
+                if (scan.nextLine().startsWith("S")) {
+                    System.out.println("Indique trama:");
+                    trama = scan.nextLine();
+                } 
+                else 
+                    trama = "Lisa";
+
+                scan.close();
+            }
+            catch (IllegalArgumentException tipoErroneo) {
+                System.out.println("Se introdujo un valor de material invalido.");
+            }
         }
     }
 
-    static void elegirColor() {
-        try {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Indique color:");
+    static void elegirColor() { 
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Desea agregar un color?");
 
-            color = scan.nextLine();
-            scan.close();
+        boolean deseaColor = scan.nextBoolean();
+        if (deseaColor) {
+            try {
+                System.out.println("Indique color:");
+
+                color = scan.nextLine();
+                scan.close();
+            }
+            catch (IllegalArgumentException tipoErroneo) {
+                System.out.println("Se introdujo un valor de color invalido.");
+            } 
         }
-        catch (IllegalArgumentException tipoErroneo) {
-            System.out.println("Se introdujo un valor de color invalido.");
-        } 
     }
 
     static void elegirColorSecundario() {

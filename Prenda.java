@@ -9,23 +9,22 @@ abstract class Prenda {
     String colorSecundario;
 
     void setSiNullMaterial(String material) {
-        if (this.material == NULL) {
+        if (this.material == null) {
             this.material = material;
         }
     }
 
     void setSiNullColor(String color) {
-        if (this.color == NULL) {
+        if (this.color == null) {
             this.color = color;
         }
     }
 
     void setSiNullColorSecundario(String colorSecundario) {
-        if (this.colorSecundario == NULL) {
+        if (this.colorSecundario == null) {
             this.colorSecundario = colorSecundario;
         }
     }
-
 }
 
 class PrendaSuperior extends Prenda {

@@ -6,7 +6,7 @@ class QueMePongo {
     ArrayList<Uniforme> uniformesSugeridos = new ArrayList<>();
     
     Prenda crearPrenda() {
-        Prenda prenda = BuilderPrenda.cargarPrenda();
+        Prenda prenda = BuilderPrenda.crearPrenda();
         agregarPrenda(prenda);
         
         return prenda;
