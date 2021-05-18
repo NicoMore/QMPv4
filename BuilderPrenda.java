@@ -39,6 +39,13 @@ class BuilderPrenda {
         elegirColorSecundario();
         indicarTemperatura();
     }
+    
+    static Prenda crearPrenda() {
+        tipo.setSiNullColor(color);
+        tipo.setSiNullColorSecundario(colorSecundario);
+        tipo.setSiNullMaterial(material);
+        return tipo;
+    }
 
     private static void indicarTemperatura() {
         Scanner scan = new Scanner(System.in);
@@ -63,13 +70,6 @@ class BuilderPrenda {
                 System.out.println("No se introdujo una temperatura valida.");
             }
         }
-    }
-
-    static Prenda crearPrenda() {
-        tipo.setSiNullColor(color);
-        tipo.setSiNullColorSecundario(colorSecundario);
-        tipo.setSiNullMaterial(material);
-        return tipo;
     }
 
     static Prenda indicarTipo() {
