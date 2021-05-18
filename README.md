@@ -50,3 +50,9 @@ Pasos para integrar la segunda iteracion en la cuarta:
     -Cambiar manejo de Uniformes con factory method. ✓
 
 Decisiones en cuarta iteracion:
+    -Meteorologo como strategy para manejo de distintos servicios.
+    -Interfaz servicio como adapter para usar las distintas apis.
+    -Temperatura como clase para soportar distintos formatos y menor repeticion de codigo, mismo caso con Clima.
+    -Prenda mutable si atributos nulos, para soportar manejo de borradores (1 por vez), manteniendo inmutabilidad.
+    -Todos los metodos de Prenda pasados al builder para mayor coherencia.
+    -Creacion de una PrendaFallada, para soluciones polimorficas de fallos.
