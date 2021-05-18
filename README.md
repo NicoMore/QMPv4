@@ -36,3 +36,17 @@ Pasos para integrar la primera iteracion en la segunda:
 Decisiones en Segunda Iteracion:
     -Se paso de un factory a un builder (ademas de destruir las pequeñas factories).
     -Tipos de prenda definidos como Strings.
+
+# Cuarta Iteracion
+Requerimientos cuarta iteracion:
+    -Conocer clima Bs As para sugerencias.
+    -Recibir sugerencia de atuendo con prenda de cada categoria.
+    -Prendas acorde a temperatura en sugerencia.
+    -Administrador desea configurar distintos servicios de obtencion de clima.
+    -Stakeholder asegurar calidad sin costos innecesarios.
+
+Pasos para integrar la segunda iteracion en la cuarta:
+    -Integrar borrador directamente en el builder.
+    -Cambiar manejo de Uniformes con factory method.
+
+Decisiones en cuarta iteracion:

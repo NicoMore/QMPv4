@@ -8,57 +8,20 @@ abstract class Prenda {
     String color;
     String colorSecundario;
 
-    void elegirMaterial() {
-        try {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Indique material:");
+    void setSiNullTipo(String tipo) {
 
-            this.material = scan.nextLine();
-
-            System.out.println("Desea indicar una trama?");
-            if (scan.nextLine().startsWith("S")) {
-                System.out.println("Indique trama:");
-                this.trama = scan.nextLine();
-            } 
-            else 
-                this.trama = "Lisa";
-
-            scan.close();
-        }
-        catch (IllegalArgumentException tipoErroneo) {
-            System.out.println("Se introdujo un valor de material invalido.");
-        }
     }
 
-    void elegirColor() {
-        try {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Indique color:");
+    void setSiNullMaterial(String material) {
 
-            this.color = scan.nextLine();
-            scan.close();
-        }
-        catch (IllegalArgumentException tipoErroneo) {
-            System.out.println("Se introdujo un valor de color invalido.");
-        } 
     }
 
-    void elegirColorSecundario() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Desea agregar un color secundario?");
+    void setSiNullColor(String color) {
 
-        boolean deseaColorSecundario = scan.nextBoolean();
-        if (deseaColorSecundario) {
-            try {
-                System.out.println("Indique color secundario:");
+    }
 
-                this.colorSecundario = scan.nextLine();
-                scan.close();
-            }
-            catch (IllegalArgumentException tipoErroneo) {
-                System.out.println("Se introdujo un valor de color invalido.");
-            }
-        }
+    void setSiNullColorSecundario(String colorSecundario) {
+
     }
 
 }

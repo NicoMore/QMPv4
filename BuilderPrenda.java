@@ -9,7 +9,11 @@ class BuilderPrenda {
     static ArrayList<String> tiposCalzados = new ArrayList<>();
     static ArrayList<String> tiposAccesorios = new ArrayList<>();
 
-    static Prenda borrador;
+    static Prenda tipo; 
+    static String material;
+    static String trama;
+    static String color;
+    static String colorSecundario;
 
     static ArrayList<String> getTiposSuperiores() {
         return tiposSuperiores;
@@ -27,25 +31,17 @@ class BuilderPrenda {
         return tiposAccesorios;
     }
 
-    public static Prenda cargarPrenda() {
-        Prenda prenda = indicarTipo();
-        if (!continuar(prenda)) 
-            return borrador;
-        prenda.elegirMaterial();
-        if (!continuar(prenda)) 
-            return borrador;
-        prenda.elegirColor();
-        if (!continuar(prenda)) 
-            return borrador;
-        prenda.elegirColorSecundario();
-
-        return prenda;
+    public static void cargarPrenda() {
+        tipo = indicarTipo();
+        material = elegirMaterial();
+        color = elegirColor();
+        colorSecundario = elegirColorSecundario();
     }
 
-    Prenda continuarBorrador() {
-        Prenda prenda = borrador;
+    Prenda continuartipo() {
+        Prenda prenda = tipo;
         
-        // Identificaria que le falta al borrador para completarlo
+        // Identificaria que le falta al tipo para completarlo
 
         return prenda;
     }
@@ -77,21 +73,57 @@ class BuilderPrenda {
         }
     }
 
-    static boolean continuar(Prenda unaPrenda) {
-        System.out.println("Desea continuar?");
+    static String elegirMaterial() {
+        try {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Indique material:");
 
-        Scanner scan = new Scanner(System.in);
+            material = scan.nextLine();
 
-        if (scan.nextLine().startsWith("S")) {
-            scan.close(); 
-            return true;
-        }
-        else {
-            borrador = unaPrenda;
+            System.out.println("Desea indicar una trama?");
+            if (scan.nextLine().startsWith("S")) {
+                System.out.println("Indique trama:");
+                trama = scan.nextLine();
+            } 
+            else 
+                trama = "Lisa";
+
             scan.close();
-            return false;
         }
+        catch (IllegalArgumentException tipoErroneo) {
+            System.out.println("Se introdujo un valor de material invalido.");
+        }
+    }
 
+    static String elegirColor() {
+        try {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Indique color:");
+
+            this.color = scan.nextLine();
+            scan.close();
+        }
+        catch (IllegalArgumentException tipoErroneo) {
+            System.out.println("Se introdujo un valor de color invalido.");
+        } 
+    }
+
+    static String elegirColorSecundario() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Desea agregar un color secundario?");
+
+        boolean deseaColorSecundario = scan.nextBoolean();
+        if (deseaColorSecundario) {
+            try {
+                System.out.println("Indique color secundario:");
+
+                this.colorSecundario = scan.nextLine();
+                scan.close();
+            }
+            catch (IllegalArgumentException tipoErroneo) {
+                System.out.println("Se introdujo un valor de color invalido.");
+            }
+        }
     }
 }
 
