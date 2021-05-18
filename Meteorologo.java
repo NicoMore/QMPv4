@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 class Meteorologo {
-    Servicio servicio;
+    static Servicio servicio;
 
     Servicio getServicio() {
         return servicio;
     }
 
-    void setServicio(Servicio servicio) {
-        this.servicio = servicio;
+    static void setServicio(Servicio unServicio) {
+        servicio = unServicio;
     }
 
     static Clima obtenerClima(LocalDate fecha) {
@@ -24,6 +24,7 @@ interface Servicio {
     float obtenerProbabilidadDeLluvia();
     String obtenerCondiciones();
     LocalDate obtenerFecha();
+    LocalDate asLocalDate(String fechaEnOtroFormato);
 }
 
 class AccuWeather implements Servicio {
@@ -49,7 +50,8 @@ class AccuWeather implements Servicio {
     }
 
     LocalDate obtenerFecha() {
-
+        String fechaEnDateTime = condicionesClimaticasBsAs.get(0).get("DateTime");
+        return asLocalDate(fechaEnDateTime);
+    
     }
-
 }
