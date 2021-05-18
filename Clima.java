@@ -6,4 +6,11 @@ class Clima {
     float probabilidadDeLluvia;
     String condiciones;
     LocalDate fecha;
+
+    Clima(HashMap<String, Object> temperatura, float probabilidadDeLluvia, String condiciones, LocalDate fecha){
+        this.temperatura = temperatura;
+        this.probabilidadDeLluvia = probabilidadDeLluvia;
+        this.condiciones = condiciones;
+        this.fecha = fecha;
+    }
 }

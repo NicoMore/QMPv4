@@ -23,7 +23,7 @@ class Uniforme extends Atuendo {
     }
 
     static Uniforme fabricarUniforme(Sastre sastre) {
-        return new Uniforme(sastre.fabricarPrendaSuperior(), sastre.fabricarPrendaInferior(), sastre.fabricarCalzado())
+        return new Uniforme(sastre.fabricarPrendaSuperior(), sastre.fabricarPrendaInferior(), sastre.fabricarCalzado());
     }
 
 }
