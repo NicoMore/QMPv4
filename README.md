@@ -46,7 +46,7 @@ Requerimientos cuarta iteracion:
     -Stakeholder asegurar calidad sin costos innecesarios.
 
 Pasos para integrar la segunda iteracion en la cuarta:
-    -Integrar borrador directamente en el builder.
-    -Cambiar manejo de Uniformes con factory method.
+    -Integrar borrador directamente en el builder. ✓
+    -Cambiar manejo de Uniformes con factory method. ✓
 
 Decisiones en cuarta iteracion:

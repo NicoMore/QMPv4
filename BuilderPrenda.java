@@ -14,6 +14,7 @@ class BuilderPrenda {
     static String trama;
     static String color;
     static String colorSecundario;
+    static float temperatura; // Falta manejo
 
     static ArrayList<String> getTiposSuperiores() {
         return tiposSuperiores;

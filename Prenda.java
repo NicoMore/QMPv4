@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
 abstract class Prenda {
     String tipo;
     String material;
     String trama;
     String color;
     String colorSecundario;
+    float temperatura;
 
     void setSiNullMaterial(String material) {
         if (this.material == null) {
