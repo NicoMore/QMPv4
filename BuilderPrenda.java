@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 enum Categoria { Superior, Inferior, Calzado, Accesorio; }
@@ -14,7 +15,7 @@ class BuilderPrenda {
     static String trama;
     static String color;
     static String colorSecundario;
-    static float temperatura; // Falta manejo
+    static HashMap<String, Object>  temperatura;
 
     static ArrayList<String> getTiposSuperiores() {
         return tiposSuperiores;
@@ -37,6 +38,32 @@ class BuilderPrenda {
         elegirMaterial();
         elegirColor();
         elegirColorSecundario();
+        indicarTemperatura();
+    }
+
+    private static void indicarTemperatura() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Desea agregar indicar una temperatura?");
+
+        boolean deseaTemperatura = scan.nextBoolean();
+        if (deseaTemperatura) {
+            try {
+                System.out.println("Indique temperatura:");
+
+                float grados = scan.nextFloat();
+                String unidad = scan.nextLine();
+                int tipoUnidad = scan.nextInt();
+
+                temperatura.put("Grados", grados);
+                temperatura.put("Unidad", unidad);
+                temperatura.put("Tipo de Unidad", tipoUnidad);
+
+                scan.close();
+            }
+            catch (IllegalArgumentException tipoErroneo) {
+                System.out.println("No se introdujo una temperatura valida.");
+            }
+        }
     }
 
     static Prenda crearPrenda() {

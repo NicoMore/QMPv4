@@ -1,10 +1,12 @@
+import java.util.HashMap;
+
 abstract class Prenda {
     String tipo;
     String material;
     String trama;
     String color;
     String colorSecundario;
-    float temperatura;
+    HashMap<String, Object> temperatura;
 
     void setSiNullMaterial(String material) {
         if (this.material == null) {
@@ -21,6 +23,12 @@ abstract class Prenda {
     void setSiNullColorSecundario(String colorSecundario) {
         if (this.colorSecundario == null) {
             this.colorSecundario = colorSecundario;
+        }
+    }
+
+    void setSiNullTemperatura(HashMap<String, Object> temperatura) {
+        if (this.temperatura.isEmpty()) {
+            this.temperatura = temperatura;
         }
     }
 }
